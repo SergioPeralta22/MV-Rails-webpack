@@ -2,24 +2,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: test3
+  password: test3
 
 development:
   <<: *default
-  database: rails_development
-  username: test3
-  password: test3
-  port: 5432
-  host: localhost
+  database: hello_rails_react_development
 
 test:
   <<: *default
-  database: rails_test
-  username: test3
-  password: test3
-  port: 5432
-  host: localhost
+  database: hello_rails_react_test
+
 
 production:
   <<: *default
-  database: rails_production
-  url: <%= ENV["MY_APP_DATABASE_URL"] %>
+  url: <%= ENV['DATABASE_URL'] %>
